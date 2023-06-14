@@ -1,0 +1,54 @@
+---
+title: "pilot"
+author: "Karissa Barthelson"
+date: "2023-06-14"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  autodep = TRUE,
+  echo = TRUE, 
+  warning = FALSE,
+  message = FALSE,
+  fig.align = "center", 
+  fig.retina = 1,
+  out.width ="100%", 
+  out.height = "100%"
+)
+```
+
+```{r packages}
+library(tidyverse)
+library(readxl)
+library(here)
+library(magrittr)
+library(scales)
+library(readxl)
+library(ggpubr)
+library(ggeasy)
+library(ggfortify)
+library(ggbeeswarm)
+library(ggforce)
+library(ggrepel)
+library(kableExtra)
+
+# stat analysis
+library(broom)
+library(lme4)
+library(performance)
+library(car)
+library(emmeans)
+library(glmmTMB)
+library(MASS)
+
+# set the default theme for ggplot as theme_bw
+theme_set(theme_classic())
+```
+
+# Introduction
+
+This pilot analysis will determine whether treatment with salbutamol (B2-adrenergiv receptor) can rescue changes to behaviour in a zebrafish model of MPS IIIB (naglu homs). 
+
+The family of fish was split 
