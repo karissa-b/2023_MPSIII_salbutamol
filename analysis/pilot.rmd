@@ -47,8 +47,26 @@ library(MASS)
 theme_set(theme_classic())
 ```
 
+```{r}
+meta <- read_excel("data/pilot/7 days/06062023 salbutamol pilot fish metadata.xlsx", 
+           sheet = "7 days") %>% 
+  
+  # tidy up colnames
+  mutate(fish_id = as.character(fish_id), 
+         treatment = factor(treatment, levels = c("untreated", 
+                                                  "20 µM Salbutamol", 
+                                                  "100 µM Salbutamol")),
+         sex = as.factor(sex), 
+         start_time = as.factor(`start time`), 
+         genotype = factor(genotype, levels = c("het", "hom"))
+         
+         )
+```
+
+
 # Introduction
 
 This pilot analysis will determine whether treatment with salbutamol (B2-adrenergiv receptor) can rescue changes to behaviour in a zebrafish model of MPS IIIB (naglu homs). 
 
-The family of fish was split 
+The family of fish was consisted 
+
