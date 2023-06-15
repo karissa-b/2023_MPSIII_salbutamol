@@ -48,7 +48,14 @@ df <- df %>%
   pivot_wider( names_from = ENDPOINT,
                values_from = value)
 
-
+df %>%
+  group_by(fish_id) %>%
+  mutate(total_dist = sum(TOTAL_DISTANCE_IN_ZONE )) %>%
+  dplyr::distinct(fish_id, .keep_all = TRUE) %>%
+  dplyr::filter(genotype %in% c('het', 'hom')) %>%
+  ggplot(aes(x = genotype, y = total_dist, colour = as.factor(`start time`))) +
+  geom_boxplot() +
+  geom_jitter()
 
 
 
