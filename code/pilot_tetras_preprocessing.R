@@ -3,7 +3,9 @@
 # Set input and output to the correct paths in the "YMazeAnalysisScript" directory
 
 library(tidyverse)
+library(magrittr)
 library(here)
+library(readxl)
 library(lubridate)
 
 output <- here("data/pilot/7 days/processed_data/zones")

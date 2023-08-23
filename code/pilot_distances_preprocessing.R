@@ -2,7 +2,7 @@
 
 # add the fish_ids to the metadata list
 meta <- read_excel("data/pilot/7 days/06062023 salbutamol pilot fish metadata.xlsx",
-                   sheet = "7 days") %>%
+                   sheet = "14 days") %>%
 
   # tidy up colnames
   mutate(fish_id = as.character(fish_id),
@@ -16,7 +16,7 @@ meta <- read_excel("data/pilot/7 days/06062023 salbutamol pilot fish metadata.xl
   )
 
 # define the filenames
-file_list <- list.files("data/pilot/7 days/raw_data/distances",
+file_list <- list.files("data/pilot/14 days/raw_data/distances",
            pattern = "*.csv",
            full.names = TRUE)
 
@@ -26,7 +26,7 @@ df <- tibble(data_file_distances = file_list) %>%  #Import data as a tibble with
   mutate(data = map(file_list, ~ read_csv(.x )),
 
          # cleanup the filename to match what is in the meta sheet
-         data_file_distances = str_remove(data_file_distances, pattern = "data/pilot/7 days/raw_data/distances/"))
+         data_file_distances = str_remove(data_file_distances, pattern = "data/pilot/14 days/raw_data/distances/"))
 
 
 # converto to a tibble rather than a list
@@ -49,6 +49,9 @@ df <- df %>%
                values_from = value)
 
 df %>%
+  saveRDS("data/pilot/14 days/processed_data/distanceData14days.rds")
+
+df %>%
   group_by(fish_id) %>%
   mutate(total_dist = sum(TOTAL_DISTANCE_IN_ZONE )) %>%
   dplyr::distinct(fish_id, .keep_all = TRUE) %>%
@@ -57,11 +60,37 @@ df %>%
   geom_boxplot() +
   geom_jitter()
 
+bin_df <- tibble(bins10 = c(rep(1, 360),
+                  rep(2, 360),
+                  rep(3, 360),
+                  rep(4, 360),
+                  rep(5, 360),
+                  rep(6, 360),
+                  rep(7, 360),
+                  rep(8, 360),
+                  rep(9, 360),
+                  rep(10, 360)
+                  ),
+       bins6 = c(rep(1, 600),
+                 rep(2, 600),
+                 rep(3, 600),
+                 rep(4, 600),
+                 rep(5, 600),
+                 rep(6, 600)
+       ),
+       BIN_NUM = df$BIN_NUM %>% unique
+)
 
-
-
-
-
-
-
-
+df %>%
+  left_join(bin_df) %>%
+  group_by(fish_id, bins6) %>%
+  mutate(total_distance = sum(TOTAL_DISTANCE_IN_ZONE)) %>%
+  dplyr::distinct(bins6, .keep_all = T) %>%
+  dplyr::filter(genotype %in% c('het', 'hom')) %>%
+  ggplot(aes(x = bins6, y = total_distance, colour = treatment)) +
+  geom_jitter(alpha = 0.75) +
+  geom_smooth(aes(group = treatment),
+              se = F) +
+  geom_label(aes(label = fish_id),
+             data = . %>%
+               dplyr::filter(total_distance > 25000))
