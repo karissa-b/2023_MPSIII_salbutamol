@@ -377,7 +377,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2023-07-14
+<strong>Last updated:</strong> 2023-08-24
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
@@ -401,7 +401,7 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 </div>
 <div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -468,51 +468,70 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomkarissab2023MPSIIIsalbutamoltree8381757306fbe44e1857d25b4f2bd04abd181cb8targetblank8381757a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/karissa-b/2023_MPSIII_salbutamol/tree/8381757306fbe44e1857d25b4f2bd04abd181cb8" target="_blank">8381757</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomkarissab2023MPSIIIsalbutamoltreee7fb2e6423ccadbfbe19f8c29365d74c233b3cfftargetblanke7fb2e6a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/karissa-b/2023_MPSIII_salbutamol/tree/e7fb2e6423ccadbfbe19f8c29365d74c233b3cff" target="_blank">e7fb2e6</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomkarissab2023MPSIIIsalbutamoltree8381757306fbe44e1857d25b4f2bd04abd181cb8targetblank8381757a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomkarissab2023MPSIIIsalbutamoltreee7fb2e6423ccadbfbe19f8c29365d74c233b3cfftargetblanke7fb2e6a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/karissa-b/2023_MPSIII_salbutamol/tree/8381757306fbe44e1857d25b4f2bd04abd181cb8" target="_blank">8381757</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/karissa-b/2023_MPSIII_salbutamol/tree/e7fb2e6423ccadbfbe19f8c29365d74c233b3cff" target="_blank">e7fb2e6</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
+    Ignored:    .DS_Store
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-    Ignored:    analysis/figure/
+    Ignored:    code/.DS_Store
     Ignored:    data/.DS_Store
+    Ignored:    data/exp1.2/.DS_Store
+    Ignored:    data/exp1.2/raw_data/.DS_Store
+    Ignored:    data/exp1.2/raw_data/distances/.DS_Store
+    Ignored:    data/exp1.2/raw_data/zones/.DS_Store
+    Ignored:    data/exp1.2/videos/
+    Ignored:    data/exp1/.DS_Store
+    Ignored:    data/exp1/processed_data/.DS_Store
+    Ignored:    data/exp1/raw_data/.DS_Store
+    Ignored:    data/exp1/videos/
     Ignored:    data/pilot/.DS_Store
     Ignored:    data/pilot/14 days/.DS_Store
+    Ignored:    data/pilot/14 days/raw_data/.DS_Store
     Ignored:    data/pilot/7 days/.DS_Store
     Ignored:    data/pilot/7 days/raw_data/.DS_Store
     Ignored:    data/pilot/7 days/raw_data/distances/.DS_Store
     Ignored:    data/pilot/7 days/tracking_videos/
 
 Untracked files:
-    Untracked:  analysis/fullexp1.rmd
-    Untracked:  analysis/piulot14days.rmd
-    Untracked:  code/experiment 1/
-    Untracked:  code/pilot_tetras_14d_preprocessing.R
-    Untracked:  data/exp1/
-    Untracked:  data/pilot/14 days/processed_data/
-    Untracked:  data/pilot/14 days/raw_data/
-    Untracked:  data/pilot/14 days/tracking_videos/
-    Untracked:  data/pilot/7 days/processed_data/distanceData7days.rds
-    Untracked:  output/R_objects/
+    Untracked:  analysis/fullexp1-2.rmd
+    Untracked:  code/experiment 1.2/
+    Untracked:  code/experiment 1/distances_exp1.2.R
+    Untracked:  code/plotMaking.R
+    Untracked:  data/R_objects/
+    Untracked:  data/exp1.2/processed_data/
+    Untracked:  data/exp1.2/~$2023_Aug18_salbutamolexp1_2_meta.xlsx
+    Untracked:  output/plots/
 
 Unstaged changes:
-    Modified:   analysis/pilot.rmd
-    Modified:   code/pilot_distances_preprocessing.R
-    Modified:   code/pilot_tetras_preprocessing.R
-    Modified:   data/pilot/14 days/KB 14June2023 melt curve 2_data.xls
-    Modified:   data/pilot/7 days/06062023 salbutamol pilot fish metadata.xlsx
+    Modified:   .gitignore
+    Modified:   analysis/fullexp1.rmd
+    Modified:   data/exp1.2/2023_Aug18_salbutamolexp1_2_meta.xlsx
+    Modified:   data/exp1.2/metadata_withGenotype.rds
+    Deleted:    data/exp1.2/raw_data/distances/ymaze_inLT-20230818T102151-data_totals.csv
+    Deleted:    data/exp1.2/raw_data/distances/ymazeinLT-20230818T095428-data_totals.csv
+    Deleted:    data/exp1.2/raw_data/distances/ymazeinLT-20230818T095643-data_totals.csv
+    Deleted:    data/exp1.2/raw_data/distances/ymazeinLT-20230818T164213-data_totals.csv
+    Deleted:    data/exp1.2/raw_data/distances/ymazeinLT-20230818T164447-data_totals.csv
+    Deleted:    data/exp1.2/raw_data/zones/ymaze8-20230818T095443.csv
+    Deleted:    data/exp1.2/raw_data/zones/ymaze_inLT-20230818T102150.csv
+    Deleted:    data/exp1.2/raw_data/zones/ymazeinLT-20230818T095427.csv
+    Deleted:    data/exp1.2/raw_data/zones/ymazeinLT-20230818T095643.csv
+    Deleted:    data/exp1.2/raw_data/zones/ymazeinLT-20230818T164213.csv
+    Deleted:    data/exp1.2/raw_data/zones/ymazeinLT-20230818T164446.csv
 
 </code></pre>
 <p>
@@ -525,9 +544,69 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
+
 <p>
-There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/fullexp1.rmd</code>) and HTML (<code>docs/fullexp1.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/karissa-b/2023_MPSIII_salbutamol/blob/e7fb2e6423ccadbfbe19f8c29365d74c233b3cff/analysis/fullexp1.rmd" target="_blank">e7fb2e6</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2023-08-23
+</td>
+<td>
+addded salbutamol exp 1.2 data + genotyping analsysis
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/karissa-b/2023_MPSIII_salbutamol/e7fb2e6423ccadbfbe19f8c29365d74c233b3cff/docs/fullexp1.html" target="_blank">e7fb2e6</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2023-08-23
+</td>
+<td>
+addded salbutamol exp 1.2 data + genotyping analsysis
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 </div>
 </div>
@@ -574,6 +653,43 @@ theme_set(theme_classic())</code></pre>
   scale_y_continuous(labels = comma, 
                      limits = c(0, 250000)) </code></pre>
 <p><img src="figure/fullexp1.rmd/unnamed-chunk-1-1.png" width="100%" height="100%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-1-1">
+Past versions of unnamed-chunk-1-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-1-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/2023_MPSIII_salbutamol/blob/e7fb2e6423ccadbfbe19f8c29365d74c233b3cff/docs/figure/fullexp1.rmd/unnamed-chunk-1-1.png" target="_blank">e7fb2e6</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2023-08-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="metadata-summary" class="section level1">
 <h1>metadata summary</h1>
@@ -582,9 +698,46 @@ theme_set(theme_classic())</code></pre>
 <pre class="r"><code>meta %&gt;% 
   ggplot(aes(x = treatment, fill = genotype)) +
   geom_bar(position = &quot;dodge&quot;) +
-  facet_wrap(~sex) +
+#  facet_wrap(~sex) +
   scale_y_continuous(breaks = seq(1,26))</code></pre>
 <p><img src="figure/fullexp1.rmd/unnamed-chunk-3-1.png" width="100%" height="100%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-3-1">
+Past versions of unnamed-chunk-3-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-3-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/2023_MPSIII_salbutamol/blob/e7fb2e6423ccadbfbe19f8c29365d74c233b3cff/docs/figure/fullexp1.rmd/unnamed-chunk-3-1.png" target="_blank">e7fb2e6</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2023-08-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>A couple of fish I wasnt sure about the sex.</p>
 <p>Accoring to my lab notes, the following table was how many fish I treated</p>
 <pre class="r"><code>ggarrange(
@@ -608,6 +761,43 @@ meta %&gt;%
   scale_y_continuous(breaks = seq(1,26))
 )</code></pre>
 <p><img src="figure/fullexp1.rmd/unnamed-chunk-4-1.png" width="100%" height="100%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-4-1">
+Past versions of unnamed-chunk-4-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-4-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/2023_MPSIII_salbutamol/blob/e7fb2e6423ccadbfbe19f8c29365d74c233b3cff/docs/figure/fullexp1.rmd/unnamed-chunk-4-1.png" target="_blank">e7fb2e6</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2023-08-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>I think I will just omit them for now.</p>
 <pre class="r"><code># save the fish_ids for later
 fish2omit &lt;- meta %&gt;% 
@@ -675,6 +865,43 @@ bin_df &lt;- tibble(
              data = . %&gt;% 
                dplyr::filter(total_distance &gt; 25000))</code></pre>
 <p><img src="figure/fullexp1.rmd/unnamed-chunk-7-1.png" width="100%" height="100%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-7-1">
+Past versions of unnamed-chunk-7-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-7-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/2023_MPSIII_salbutamol/blob/e7fb2e6423ccadbfbe19f8c29365d74c233b3cff/docs/figure/fullexp1.rmd/unnamed-chunk-7-1.png" target="_blank">e7fb2e6</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2023-08-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>fish2omit2 &lt;- c(fish2omit, 
   meta %&gt;% 
     dplyr::filter(grepl(Comment, pattern = &quot;tracking&quot;)) %&gt;% 
@@ -697,6 +924,43 @@ bin_df &lt;- tibble(
              data = . %&gt;% 
                dplyr::filter(total_distance &gt; 25000))</code></pre>
 <p><img src="figure/fullexp1.rmd/unnamed-chunk-9-1.png" width="100%" height="100%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-9-1">
+Past versions of unnamed-chunk-9-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-9-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/2023_MPSIII_salbutamol/blob/e7fb2e6423ccadbfbe19f8c29365d74c233b3cff/docs/figure/fullexp1.rmd/unnamed-chunk-9-1.png" target="_blank">e7fb2e6</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2023-08-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="omit-problmeatic-fish" class="section level2">
 <h2>omit problmeatic fish</h2>
@@ -737,6 +1001,43 @@ final_data_summedoverbins %&lt;&gt;%
   scale_y_continuous(labels = comma) +
   facet_wrap(~behavBatch, scales = &quot;free_x&quot;, nrow = 1)</code></pre>
 <p><img src="figure/fullexp1.rmd/unnamed-chunk-11-1.png" width="100%" height="100%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-11-1">
+Past versions of unnamed-chunk-11-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-11-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/2023_MPSIII_salbutamol/blob/e7fb2e6423ccadbfbe19f8c29365d74c233b3cff/docs/figure/fullexp1.rmd/unnamed-chunk-11-1.png" target="_blank">e7fb2e6</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2023-08-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="total-distance-travelled" class="section level1">
 <h1>total distance travelled</h1>
@@ -753,32 +1054,124 @@ final_data_summedoverbins %&lt;&gt;%
 # all look ok
 check_model(fit.dists)</code></pre>
 <p><img src="figure/fullexp1.rmd/unnamed-chunk-12-1.png" width="100%" height="100%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-12-1">
+Past versions of unnamed-chunk-12-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-12-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/2023_MPSIII_salbutamol/blob/e7fb2e6423ccadbfbe19f8c29365d74c233b3cff/docs/figure/fullexp1.rmd/unnamed-chunk-12-1.png" target="_blank">e7fb2e6</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2023-08-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>an &lt;- Anova(fit.dists)
 
-emmeans(fit.dists, list(pairwise ~ genotype * treatment), adjust = &quot;tukey&quot;)</code></pre>
-<pre><code>$`emmeans of genotype, treatment`
- genotype treatment        emmean   SE   df lower.CL upper.CL
- het      untreated          7357  821 52.2     5709     9004
- hom      untreated         10644 1039 64.8     8568    12719
- het      20 µM Salbutamol   9166  851 56.4     7462    10870
- hom      20 µM Salbutamol   8746  854 52.5     7033    10459
+emmeans(fit.dists, list(pairwise ~ genotype * treatment * sex), adjust = &quot;tukey&quot;)</code></pre>
+<pre><code>$`emmeans of genotype, treatment, sex`
+ genotype treatment        sex emmean   SE   df lower.CL upper.CL
+ het      untreated        f     6414 1300 71.5     3823     9004
+ hom      untreated        f    10519 1123 70.8     8279    12759
+ het      20 µM Salbutamol f     8939 1250 57.7     6436    11442
+ hom      20 µM Salbutamol f     9944 1173 72.5     7607    12281
+ het      untreated        m     8300 1010 63.2     6281    10319
+ hom      untreated        m    10769 1745 74.9     7292    14246
+ het      20 µM Salbutamol m     9393 1186 67.1     7025    11760
+ hom      20 µM Salbutamol m     7548 1246 65.8     5060    10036
 
-Results are averaged over the levels of: bins6, sex 
+Results are averaged over the levels of: bins6 
 Degrees-of-freedom method: kenward-roger 
 Confidence level used: 0.95 
 
-$`pairwise differences of genotype, treatment`
- 1                                           estimate   SE   df t.ratio p.value
- het untreated - hom untreated                  -3287 1338 74.5  -2.457  0.0753
- het untreated - het 20 µM Salbutamol           -1809 1175 69.5  -1.539  0.4201
- het untreated - hom 20 µM Salbutamol           -1389 1187 74.7  -1.170  0.6473
- hom untreated - het 20 µM Salbutamol            1478 1349 75.0   1.095  0.6935
- hom untreated - hom 20 µM Salbutamol            1898 1342 72.6   1.414  0.4947
- het 20 µM Salbutamol - hom 20 µM Salbutamol      420 1219 74.8   0.345  0.9858
+$`pairwise differences of genotype, treatment, sex`
+ 1                                               estimate   SE   df t.ratio
+ het untreated f - hom untreated f                  -4105 1733 75.0  -2.369
+ het untreated f - het 20 µM Salbutamol f           -2525 1776 68.5  -1.422
+ het untreated f - hom 20 µM Salbutamol f           -3530 1758 74.8  -2.008
+ het untreated f - het untreated m                  -1886 1650 74.7  -1.143
+ het untreated f - hom untreated m                  -4355 2182 75.0  -1.996
+ het untreated f - het 20 µM Salbutamol m           -2979 1759 75.0  -1.694
+ het untreated f - hom 20 µM Salbutamol m           -1134 1819 73.2  -0.623
+ hom untreated f - het 20 µM Salbutamol f            1579 1689 73.7   0.935
+ hom untreated f - hom 20 µM Salbutamol f             575 1617 69.7   0.355
+ hom untreated f - het untreated m                   2219 1520 74.8   1.460
+ hom untreated f - hom untreated m                   -250 2073 71.8  -0.121
+ hom untreated f - het 20 µM Salbutamol m            1126 1636 74.0   0.688
+ hom untreated f - hom 20 µM Salbutamol m            2971 1679 74.5   1.770
+ het 20 µM Salbutamol f - hom 20 µM Salbutamol f    -1005 1724 73.8  -0.583
+ het 20 µM Salbutamol f - het untreated m             639 1616 72.4   0.396
+ het 20 µM Salbutamol f - hom untreated m           -1830 2162 73.5  -0.846
+ het 20 µM Salbutamol f - het 20 µM Salbutamol m     -453 1745 67.8  -0.260
+ het 20 µM Salbutamol f - hom 20 µM Salbutamol m     1392 1782 67.6   0.781
+ hom 20 µM Salbutamol f - het untreated m            1644 1533 68.5   1.072
+ hom 20 µM Salbutamol f - hom untreated m            -825 2111 73.6  -0.391
+ hom 20 µM Salbutamol f - het 20 µM Salbutamol m      551 1666 72.9   0.331
+ hom 20 µM Salbutamol f - hom 20 µM Salbutamol m     2396 1714 74.5   1.398
+ het untreated m - hom untreated m                  -2469 2026 74.4  -1.219
+ het untreated m - het 20 µM Salbutamol m           -1093 1560 74.5  -0.700
+ het untreated m - hom 20 µM Salbutamol m             752 1595 73.2   0.472
+ hom untreated m - het 20 µM Salbutamol m            1376 2103 72.2   0.654
+ hom untreated m - hom 20 µM Salbutamol m            3221 2133 72.1   1.510
+ het 20 µM Salbutamol m - hom 20 µM Salbutamol m     1845 1732 74.9   1.065
+ p.value
+  0.2716
+  0.8439
+  0.4838
+  0.9449
+  0.4916
+  0.6912
+  0.9984
+  0.9815
+  1.0000
+  0.8257
+  1.0000
+  0.9971
+  0.6420
+  0.9990
+  0.9999
+  0.9897
+  1.0000
+  0.9936
+  0.9604
+  0.9999
+  1.0000
+  0.8554
+  0.9239
+  0.9967
+  0.9997
+  0.9979
+  0.7996
+  0.9620
 
-Results are averaged over the levels of: bins6, sex 
+Results are averaged over the levels of: bins6 
 Degrees-of-freedom method: kenward-roger 
-P value adjustment: tukey method for comparing a family of 4 estimates </code></pre>
+P value adjustment: tukey method for comparing a family of 8 estimates </code></pre>
 <pre class="r"><code># geno treat sex
 print(emmeans(fit.dists, ~ genotype * treatment * sex), type = &quot;response&quot;) %&gt;% 
   as_tibble() %&gt;% 
@@ -805,6 +1198,43 @@ Results are averaged over the levels of: bins6
 Degrees-of-freedom method: kenward-roger 
 Confidence level used: 0.95 </code></pre>
 <p><img src="figure/fullexp1.rmd/unnamed-chunk-12-2.png" width="100%" height="100%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-12-2">
+Past versions of unnamed-chunk-12-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-12-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/2023_MPSIII_salbutamol/blob/e7fb2e6423ccadbfbe19f8c29365d74c233b3cff/docs/figure/fullexp1.rmd/unnamed-chunk-12-2.png" target="_blank">e7fb2e6</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2023-08-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code># geno treat
 print(emmeans(fit.dists, ~ genotype * treatment), type = &quot;response&quot;) %&gt;% 
   as_tibble() %&gt;% 
@@ -827,6 +1257,43 @@ Results are averaged over the levels of: bins6, sex
 Degrees-of-freedom method: kenward-roger 
 Confidence level used: 0.95 </code></pre>
 <p><img src="figure/fullexp1.rmd/unnamed-chunk-12-3.png" width="100%" height="100%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-12-3">
+Past versions of unnamed-chunk-12-3.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-12-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/2023_MPSIII_salbutamol/blob/e7fb2e6423ccadbfbe19f8c29365d74c233b3cff/docs/figure/fullexp1.rmd/unnamed-chunk-12-3.png" target="_blank">e7fb2e6</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2023-08-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code># geno treat bin
 print(emmeans(fit.dists, ~ genotype * treatment * bins6 * sex), 
       type = &quot;response&quot;) %&gt;% 
@@ -900,6 +1367,43 @@ print(emmeans(fit.dists, ~ genotype * treatment * bins6 * sex),
 Degrees-of-freedom method: kenward-roger 
 Confidence level used: 0.95 </code></pre>
 <p><img src="figure/fullexp1.rmd/unnamed-chunk-12-4.png" width="100%" height="100%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-12-4">
+Past versions of unnamed-chunk-12-4.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-12-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/2023_MPSIII_salbutamol/blob/e7fb2e6423ccadbfbe19f8c29365d74c233b3cff/docs/figure/fullexp1.rmd/unnamed-chunk-12-4.png" target="_blank">e7fb2e6</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2023-08-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>The genotype * treatment effect is significnat!!!</p>
 </div>
 <div id="check-for-handedness" class="section level1">
@@ -934,7 +1438,51 @@ LR_Bias &lt;- final_data %&gt;%
   ) %&gt;% 
   ggplot(aes(x = genotreat, fill = L_R_bias )) +
   geom_bar()</code></pre>
-<p><img src="figure/fullexp1.rmd/unnamed-chunk-14-1.png" width="100%" height="100%" style="display: block; margin: auto;" /> # test for changes to alternation Cleal et al. showed that zebrafish naturally perform more of the alternation tetragrams (LRLR and RLRL) in a Y-maze. Here, we actually see more reps that alts. I will look at this more closely later.</p>
+<p><img src="figure/fullexp1.rmd/unnamed-chunk-14-1.png" width="100%" height="100%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-14-1">
+Past versions of unnamed-chunk-14-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-14-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/2023_MPSIII_salbutamol/blob/e7fb2e6423ccadbfbe19f8c29365d74c233b3cff/docs/figure/fullexp1.rmd/unnamed-chunk-14-1.png" target="_blank">e7fb2e6</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2023-08-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre class="r"><code># add the LR bias object to final data
+final_data %&lt;&gt;% 
+  left_join(LR_Bias) </code></pre>
+</div>
+<div id="test-for-changes-to-alternation" class="section level1">
+<h1>test for changes to alternation</h1>
+<p>Cleal et al. showed that zebrafish naturally perform more of the alternation tetragrams (LRLR and RLRL) in a Y-maze. Here, we actually see more reps that alts. I will look at this more closely later.</p>
 <pre class="r"><code>final_data_summedoverbins %&gt;%
   dplyr::distinct(x, .keep_all = T) %&gt;%
   ggplot(aes(x = tetras, y = x)) +
@@ -949,7 +1497,44 @@ LR_Bias &lt;- final_data %&gt;%
        x = &quot;Tetragram&quot;)+
   theme(legend.position = &quot;bottom&quot;)  +
   ggtitle(&quot;Total number of 16 possible tetragrams performed by zebrafish in a Y-maze\nduring a 1 hour search period&quot;) </code></pre>
-<p><img src="figure/fullexp1.rmd/unnamed-chunk-15-1.png" width="100%" height="100%" style="display: block; margin: auto;" /></p>
+<p><img src="figure/fullexp1.rmd/unnamed-chunk-16-1.png" width="100%" height="100%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-16-1">
+Past versions of unnamed-chunk-16-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-16-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/2023_MPSIII_salbutamol/blob/e7fb2e6423ccadbfbe19f8c29365d74c233b3cff/docs/figure/fullexp1.rmd/unnamed-chunk-16-1.png" target="_blank">e7fb2e6</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2023-08-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>  # geom_label_repel(aes(label = fish_id), 
   #                  data = . %&gt;% 
   #                    dplyr::filter(x &gt; 500))</code></pre>
@@ -978,7 +1563,45 @@ LR_Bias &lt;- final_data %&gt;%
            ymin = -1, ymax = 200,
            alpha = 0, color= &quot;red&quot;) +
   ggtitle(&quot;Total number of 16 possible tetragrams performed by zebrafish in a Y-maze\nduring a 1 hour search period&quot;) </code></pre>
-<p><img src="figure/fullexp1.rmd/unnamed-chunk-16-1.png" width="100%" height="100%" style="display: block; margin: auto;" /> The alternation tetragrams are the tetragram of interest (the measure of working memory). Below indicates the number of tetragrams performed by zerbafish across the 6 x 10 min blocks of the hour they spent in the maze.</p>
+<p><img src="figure/fullexp1.rmd/unnamed-chunk-17-1.png" width="100%" height="100%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-17-1">
+Past versions of unnamed-chunk-17-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-17-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/2023_MPSIII_salbutamol/blob/e7fb2e6423ccadbfbe19f8c29365d74c233b3cff/docs/figure/fullexp1.rmd/unnamed-chunk-17-1.png" target="_blank">e7fb2e6</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2023-08-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The alternation tetragrams are the tetragram of interest (the measure of working memory). Below indicates the number of tetragrams performed by zerbafish across the 6 x 10 min blocks of the hour they spent in the maze.</p>
 <pre class="r"><code>final_data_long %&gt;%
   dplyr::distinct(fish_id, bin, .keep_all = T) %&gt;%
   mutate(binforvis = case_when(
@@ -1001,7 +1624,45 @@ LR_Bias &lt;- final_data %&gt;%
   ylab(&quot;Frequency of alternation tetragrams (LRLR + RLRL)&quot;) +
   scale_colour_viridis_d(end = 0.75) +
   scale_fill_viridis_d(end = 0.75) </code></pre>
-<p><img src="figure/fullexp1.rmd/unnamed-chunk-17-1.png" width="100%" height="100%" style="display: block; margin: auto;" /> We can also display this as the <em>relative</em> amount of alternation tetragrams performed by zebrafish in a 1 hour search period. This will control for how active each fish is. Again, fish 18 and 24 looks like outliers.</p>
+<p><img src="figure/fullexp1.rmd/unnamed-chunk-18-1.png" width="100%" height="100%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-18-1">
+Past versions of unnamed-chunk-18-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-18-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/2023_MPSIII_salbutamol/blob/e7fb2e6423ccadbfbe19f8c29365d74c233b3cff/docs/figure/fullexp1.rmd/unnamed-chunk-18-1.png" target="_blank">e7fb2e6</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2023-08-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>We can also display this as the <em>relative</em> amount of alternation tetragrams performed by zebrafish in a 1 hour search period. This will control for how active each fish is. Again, fish 18 and 24 looks like outliers.</p>
 <pre class="r"><code>final_data_long %&gt;%
   dplyr::distinct(fish_id, bin, .keep_all = T) %&gt;%
   mutate(binforvis = case_when(
@@ -1024,7 +1685,7 @@ LR_Bias &lt;- final_data %&gt;%
   ylab(&quot;Relative number of alternation tetragrams\n(LRLR + RLRL) / total_turns&quot;) +
   scale_colour_viridis_d(end = 0.75) +
   scale_fill_viridis_d(end = 0.75) </code></pre>
-<p><img src="figure/fullexp1.rmd/unnamed-chunk-18-1.png" width="100%" height="100%" style="display: block; margin: auto;" /> Finally, I will now test for alternation changes using a generalised linear mixed effect model (beta-binomial distribution). We use this because it is count data which is over-dispersed, and fixed and random effects are included. The link function is logit. No significant effects are observed on working memory. Only the <code>L_R_bias</code> term is significant, this is to be expected, as they would probably be performing more repitiions. The <code>bin:Genotype</code> effect is close (ish) to statistical significance. Meaning that this might have something there. but this does not take into account the Treatment group.<br />
+<p><img src="figure/fullexp1.rmd/unnamed-chunk-19-1.png" width="100%" height="100%" style="display: block; margin: auto;" /> Finally, I will now test for alternation changes using a generalised linear mixed effect model (beta-binomial distribution). We use this because it is count data which is over-dispersed, and fixed and random effects are included. The link function is logit. No significant effects are observed on working memory. Only the <code>L_R_bias</code> term is significant, this is to be expected, as they would probably be performing more repitiions. The <code>bin:Genotype</code> effect is close (ish) to statistical significance. Meaning that this might have something there. but this does not take into account the Treatment group.<br />
 Note that I have ignored the effect of Sex here. We have never really seen a Sex effect in all of our ymaze analyses.</p>
 <pre class="r"><code>glm &lt;-
   final_data %&gt;%
@@ -1313,7 +1974,48 @@ genotype:treatment:sex
 Results are averaged over the levels of: bin, L_R_bias 
 Confidence level used: 0.95 
 Intervals are back-transformed from the logit scale </code></pre>
-<p><img src="figure/fullexp1.rmd/unnamed-chunk-20-1.png" width="100%" height="100%" style="display: block; margin: auto;" /> ### bin x Genotype x Treatment While this is not significant, the homs treated with iron appear to be performing more alternations more like their het saline siblings</p>
+<p><img src="figure/fullexp1.rmd/unnamed-chunk-21-1.png" width="100%" height="100%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-21-1">
+Past versions of unnamed-chunk-21-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-21-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/2023_MPSIII_salbutamol/blob/e7fb2e6423ccadbfbe19f8c29365d74c233b3cff/docs/figure/fullexp1.rmd/unnamed-chunk-21-1.png" target="_blank">e7fb2e6</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2023-08-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="bin-x-genotype-x-treatment" class="section level3">
+<h3>bin x Genotype x Treatment</h3>
+<p>While this is not significant, the homs treated with iron appear to be performing more alternations more like their het saline siblings</p>
 <pre class="r"><code>print(emmeans(glm, ~ genotype * treatment * bin), type = &quot;response&quot;) %&gt;% 
   as_tibble() %&gt;% 
   mutate(binforvis = case_when(
@@ -1375,7 +2077,44 @@ Intervals are back-transformed from the logit scale </code></pre>
 Results are averaged over the levels of: sex, L_R_bias 
 Confidence level used: 0.95 
 Intervals are back-transformed from the logit scale </code></pre>
-<p><img src="figure/fullexp1.rmd/unnamed-chunk-21-1.png" width="100%" height="100%" style="display: block; margin: auto;" /></p>
+<p><img src="figure/fullexp1.rmd/unnamed-chunk-22-1.png" width="100%" height="100%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-22-1">
+Past versions of unnamed-chunk-22-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-22-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/2023_MPSIII_salbutamol/blob/e7fb2e6423ccadbfbe19f8c29365d74c233b3cff/docs/figure/fullexp1.rmd/unnamed-chunk-22-1.png" target="_blank">e7fb2e6</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2023-08-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1403,7 +2142,7 @@ Intervals are back-transformed from the logit scale </code></pre>
   ylab(&quot;Relative number of alternation tetragrams\n(LRLR + RLRL) / total_turns&quot;) +
   scale_colour_viridis_d(end = 0.75) +
   scale_fill_viridis_d(end = 0.75) </code></pre>
-<p><img src="figure/fullexp1.rmd/unnamed-chunk-22-1.png" width="100%" height="100%" style="display: block; margin: auto;" /> Finally, I will now test for alternation changes using a generalised linear mixed effect model (beta-binomial distribution). We use this because it is count data which is over-dispersed, and fixed and random effects are included. The link function is logit. No significant effects are observed on working memory. Only the <code>L_R_bias</code> term is significant, this is to be expected, as they would probably be performing more repitiions. The <code>bin:Genotype</code> effect is close (ish) to statistical significance. Meaning that this might have something there. but this does not take into account the Treatment group.<br />
+<p><img src="figure/fullexp1.rmd/unnamed-chunk-23-1.png" width="100%" height="100%" style="display: block; margin: auto;" /> Finally, I will now test for alternation changes using a generalised linear mixed effect model (beta-binomial distribution). We use this because it is count data which is over-dispersed, and fixed and random effects are included. The link function is logit. No significant effects are observed on working memory. Only the <code>L_R_bias</code> term is significant, this is to be expected, as they would probably be performing more repitiions. The <code>bin:Genotype</code> effect is close (ish) to statistical significance. Meaning that this might have something there. but this does not take into account the Treatment group.<br />
 Note that I have ignored the effect of Sex here. We have never really seen a Sex effect in all of our ymaze analyses.</p>
 <pre class="r"><code>glm.reps &lt;-
   final_data %&gt;%
@@ -1692,12 +2431,49 @@ genotype:treatment:sex
 Results are averaged over the levels of: bin, L_R_bias 
 Confidence level used: 0.95 
 Intervals are back-transformed from the logit scale </code></pre>
-<p><img src="figure/fullexp1.rmd/unnamed-chunk-24-1.png" width="100%" height="100%" style="display: block; margin: auto;" /></p>
+<p><img src="figure/fullexp1.rmd/unnamed-chunk-25-1.png" width="100%" height="100%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-25-1">
+Past versions of unnamed-chunk-25-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-25-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/2023_MPSIII_salbutamol/blob/e7fb2e6423ccadbfbe19f8c29365d74c233b3cff/docs/figure/fullexp1.rmd/unnamed-chunk-25-1.png" target="_blank">e7fb2e6</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2023-08-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>#em. &lt;- emmeans(glm, list(pairwise ~ genotype * treatment), response) 
 
 #em$`pairwise differences of genotype, treatment`</code></pre>
 </div>
-<div id="bin-x-genotype-x-treatment" class="section level3">
+<div id="bin-x-genotype-x-treatment-1" class="section level3">
 <h3>bin x Genotype x Treatment</h3>
 <p>While this is not significant, the homs treated with iron appear to be performing more alternations more like their het saline siblings</p>
 <pre class="r"><code>print(emmeans(glm.reps, ~ genotype * treatment * bin), type = &quot;response&quot;) %&gt;% 
@@ -1760,14 +2536,21 @@ Intervals are back-transformed from the logit scale </code></pre>
 Results are averaged over the levels of: sex, L_R_bias 
 Confidence level used: 0.95 
 Intervals are back-transformed from the logit scale </code></pre>
-<p><img src="figure/fullexp1.rmd/unnamed-chunk-25-1.png" width="100%" height="100%" style="display: block; margin: auto;" /></p>
+<p><img src="figure/fullexp1.rmd/unnamed-chunk-26-1.png" width="100%" height="100%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 </div>
 <div id="conclusion" class="section level1">
 <h1>conclusion</h1>
 <p>Looks like 20 uM of salbutamol can affect zebrafish behaviour.</p>
-<p>I will repeat the experiment now with more fish per genotype.</p>
+</div>
+<div id="export-data" class="section level1">
+<h1>export data</h1>
+<pre class="r"><code>final_data %&gt;% 
+  saveRDS(&quot;data/R_objects/tetras-exp1-1.rds&quot;)
+
+distancess %&gt;% 
+  saveRDS(&quot;data/R_objects/distance_data-exp1-1.rds&quot;)</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1798,41 +2581,43 @@ other attached packages:
 [17] scales_1.2.1       magrittr_2.0.3     here_1.0.1         readxl_1.4.2      
 [21] lubridate_1.9.2    forcats_1.0.0      stringr_1.5.0      dplyr_1.1.2       
 [25] purrr_1.0.1        readr_2.1.4        tidyr_1.3.0        tibble_3.2.1      
-[29] ggplot2_3.4.2      tidyverse_2.0.0   
+[29] ggplot2_3.4.2      tidyverse_2.0.0    workflowr_1.7.0   
 
 loaded via a namespace (and not attached):
- [1] TH.data_1.1-2       minqa_1.2.5         colorspace_2.1-0   
- [4] ggsignif_0.6.4      rprojroot_2.0.3     estimability_1.4.1 
- [7] fs_1.6.2            rstudioapi_0.14     farver_2.1.1       
-[10] bit64_4.0.5         fansi_1.0.4         mvtnorm_1.1-3      
-[13] xml2_1.3.4          codetools_0.2-19    splines_4.2.3      
-[16] cachem_1.0.8        knitr_1.42          polyclip_1.10-4    
-[19] jsonlite_1.8.4      workflowr_1.7.0     nloptr_2.0.3       
-[22] pbkrtest_0.5.2      compiler_4.2.3      httr_1.4.6         
-[25] backports_1.4.1     fastmap_1.1.1       cli_3.6.1          
-[28] later_1.3.1         tweenr_2.0.2        htmltools_0.5.5    
-[31] tools_4.2.3         coda_0.19-4         gtable_0.3.3       
-[34] glue_1.6.2          Rcpp_1.0.10         cellranger_1.1.0   
-[37] jquerylib_0.1.4     vctrs_0.6.2         svglite_2.1.1      
-[40] nlme_3.1-162        insight_0.19.1      xfun_0.39          
-[43] rvest_1.0.3         timechange_0.2.0    lifecycle_1.0.3    
-[46] rstatix_0.7.2       zoo_1.8-12          vroom_1.6.3        
-[49] hms_1.1.3           promises_1.2.0.1    parallel_4.2.3     
-[52] sandwich_3.0-2      TMB_1.9.4           yaml_2.3.7         
-[55] see_0.7.5           gridExtra_2.3       sass_0.4.6         
-[58] stringi_1.7.12      bayestestR_0.13.1   highr_0.10         
-[61] boot_1.3-28.1       rlang_1.1.1         pkgconfig_2.0.3    
-[64] systemfonts_1.0.4   evaluate_0.21       lattice_0.21-8     
-[67] patchwork_1.1.2     labeling_0.4.2      bit_4.0.5          
-[70] cowplot_1.1.1       tidyselect_1.2.0    R6_2.5.1           
-[73] generics_0.1.3      multcomp_1.4-23     mgcv_1.8-42        
-[76] pillar_1.9.0        withr_2.5.0         datawizard_0.7.1   
-[79] survival_3.5-5      abind_1.4-5         crayon_1.5.2       
-[82] utf8_1.2.3          tzdb_0.3.0          rmarkdown_2.21     
-[85] grid_4.2.3          git2r_0.32.0        digest_0.6.31      
-[88] webshot_0.5.4       xtable_1.8-4        httpuv_1.6.10      
-[91] numDeriv_2016.8-1.1 munsell_0.5.0       beeswarm_0.4.0     
-[94] viridisLite_0.4.2   vipor_0.4.5         bslib_0.4.2        </code></pre>
+  [1] TH.data_1.1-2       minqa_1.2.5         colorspace_2.1-0   
+  [4] ggsignif_0.6.4      rprojroot_2.0.3     estimability_1.4.1 
+  [7] fs_1.6.2            rstudioapi_0.14     farver_2.1.1       
+ [10] bit64_4.0.5         fansi_1.0.4         mvtnorm_1.1-3      
+ [13] xml2_1.3.4          codetools_0.2-19    splines_4.2.3      
+ [16] cachem_1.0.8        knitr_1.42          polyclip_1.10-4    
+ [19] jsonlite_1.8.4      nloptr_2.0.3        pbkrtest_0.5.2     
+ [22] compiler_4.2.3      httr_1.4.6          backports_1.4.1    
+ [25] fastmap_1.1.1       cli_3.6.1           later_1.3.1        
+ [28] tweenr_2.0.2        htmltools_0.5.5     tools_4.2.3        
+ [31] coda_0.19-4         gtable_0.3.3        glue_1.6.2         
+ [34] Rcpp_1.0.10         cellranger_1.1.0    jquerylib_0.1.4    
+ [37] vctrs_0.6.2         svglite_2.1.1       nlme_3.1-162       
+ [40] insight_0.19.1      xfun_0.39           ps_1.7.5           
+ [43] rvest_1.0.3         timechange_0.2.0    lifecycle_1.0.3    
+ [46] rstatix_0.7.2       getPass_0.2-2       zoo_1.8-12         
+ [49] vroom_1.6.3         hms_1.1.3           promises_1.2.0.1   
+ [52] parallel_4.2.3      sandwich_3.0-2      TMB_1.9.4          
+ [55] yaml_2.3.7          see_0.7.5           gridExtra_2.3      
+ [58] sass_0.4.6          stringi_1.7.12      bayestestR_0.13.1  
+ [61] highr_0.10          boot_1.3-28.1       rlang_1.1.1        
+ [64] pkgconfig_2.0.3     systemfonts_1.0.4   evaluate_0.21      
+ [67] lattice_0.21-8      patchwork_1.1.2     labeling_0.4.2     
+ [70] bit_4.0.5           cowplot_1.1.1       processx_3.8.1     
+ [73] tidyselect_1.2.0    R6_2.5.1            generics_0.1.3     
+ [76] multcomp_1.4-23     mgcv_1.8-42         pillar_1.9.0       
+ [79] whisker_0.4.1       withr_2.5.0         datawizard_0.7.1   
+ [82] survival_3.5-5      abind_1.4-5         crayon_1.5.2       
+ [85] utf8_1.2.3          tzdb_0.3.0          rmarkdown_2.21     
+ [88] grid_4.2.3          callr_3.7.3         git2r_0.32.0       
+ [91] digest_0.6.31       webshot_0.5.4       xtable_1.8-4       
+ [94] numDeriv_2016.8-1.1 httpuv_1.6.10       munsell_0.5.0      
+ [97] beeswarm_0.4.0      viridisLite_0.4.2   vipor_0.4.5        
+[100] bslib_0.4.2        </code></pre>
 </div>
 </div>
 

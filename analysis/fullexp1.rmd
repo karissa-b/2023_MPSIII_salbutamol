@@ -81,7 +81,7 @@ meta <- readRDS("data/exp1/metadata_withGenotype.rds")
 meta %>% 
   ggplot(aes(x = treatment, fill = genotype)) +
   geom_bar(position = "dodge") +
-  facet_wrap(~sex) +
+#  facet_wrap(~sex) +
   scale_y_continuous(breaks = seq(1,26))
 ```
 
@@ -279,7 +279,7 @@ check_model(fit.dists)
 
 an <- Anova(fit.dists)
 
-emmeans(fit.dists, list(pairwise ~ genotype * treatment), adjust = "tukey")
+emmeans(fit.dists, list(pairwise ~ genotype * treatment * sex), adjust = "tukey")
 
 # geno treat sex
 print(emmeans(fit.dists, ~ genotype * treatment * sex), type = "response") %>% 
@@ -376,6 +376,13 @@ final_data %>%
   ggplot(aes(x = genotreat, fill = L_R_bias )) +
   geom_bar()
 ```
+
+```{r}
+# add the LR bias object to final data
+final_data %<>% 
+  left_join(LR_Bias) 
+```
+
 # test for changes to alternation
 Cleal et al. showed that zebrafish naturally perform more of the alternation tetragrams (LRLR and RLRL) in a Y-maze. Here, we actually see more reps that alts. I will look at this more closely later. 
 ```{r}
@@ -692,7 +699,16 @@ print(emmeans(glm.reps, ~ genotype * treatment * bin), type = "response") %>%
 
 Looks like 20 uM of salbutamol can affect zebrafish behaviour. 
 
-I will repeat the experiment now with more fish per genotype. 
+# export data
+
+```{r}
+final_data %>% 
+  saveRDS("data/R_objects/tetras-exp1-1.rds")
+
+distancess %>% 
+  saveRDS("data/R_objects/distance_data-exp1-1.rds")
+```
+
 
 
 

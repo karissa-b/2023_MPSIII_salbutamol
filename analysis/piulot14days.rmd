@@ -156,7 +156,7 @@ distances_14days %>%
   geom_line(aes(group = fish_id, colour = fish_id),
             data = . %>% 
               dplyr::filter(total_distance > 25000))
-            )
+            
   
 ```
 
@@ -437,7 +437,7 @@ final_data_summedoverbins %>%
 The alternation tetragrams are the tetragram of interest (the measure of working memory). Below indicates the number of tetragrams performed by zerbafish across the 6 x 10 min blocks of the hour they spent in the maze.
 ```{r}
 final_data_long %>%
-  dplyr::distinct(fish_id, bins6, .keep_all = T) %>%
+  dplyr::distinct(fish_id, bin, .keep_all = T) %>%
   mutate(binforvis = case_when(
     bin == 1 ~ "0-10 mins", 
     bin == 2 ~ "10-20 mins", 
@@ -538,9 +538,9 @@ print(emmeans(glm, ~ genotype * treatment * sex), type = "response") %>%
        title = "GLM predicted probability of zebrafish performing an alternation\ntetragram due to Genotype and Treatment"
        )
 
-em <- emmeans(glm, list(pairwise ~ genotype * treatment), response) 
+# em <- emmeans(glm, list(pairwise ~ genotype * treatment), "response") 
 
-em$`pairwise differences of genotype, treatment`
+# em$`pairwise differences of genotype, treatment`
 
 ```
 ### bin x Genotype x Treatment
@@ -659,7 +659,7 @@ print(emmeans(glm.reps, ~ genotype * treatment * sex), type = "response") %>%
        title = "GLM predicted probability of zebrafish performing an alternation\ntetragram due to Genotype and Treatment"
        )
 
-e#m. <- emmeans(glm, list(pairwise ~ genotype * treatment), response) 
+#m. <- emmeans(glm, list(pairwise ~ genotype * treatment), response) 
 
 #em$`pairwise differences of genotype, treatment`
 
