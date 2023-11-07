@@ -95,7 +95,6 @@ meta %>%
 A couple of fish I wasnt sure about the sex. I'll just omit them
 
 
-
 ```{r}
 # save the fish_ids for later
 fish2omit <- meta %>% 
@@ -241,6 +240,8 @@ distancess %>%
 
 # total distance travelled
 
+Fit a limear mixed mode;. overall, model loosk OK. a few small deviations but should be find
+
 ```{r}
 fit.dists <- 
   distancess %>%
@@ -257,36 +258,64 @@ check_model(fit.dists)
 
 an <- Anova(fit.dists)
 
-emmeans(fit.dists, list(pairwise ~ genotype * treatment), adjust = "tukey")
+# post hoc tests
+# emmeans(fit.dists, list(pairwise ~ genotype * treatment), adjust = "tukey")
 
 # geno treat sex
-print(emmeans(fit.dists, ~ genotype * treatment * sex), type = "response") %>% 
+emmeans(fit.dists, ~ genotype * treatment * sex, type = "response") %>% 
   as_tibble() %>% 
   ggplot(aes(x = treatment, y = emmean, colour = genotype)) +
-  geom_col(aes(fill = genotype), 
-           alpha = 0.75,
-           width = 0.75,
-           position = position_dodge(width = 0.75)) +
-  geom_errorbar(aes(ymin =  lower.CL, ymax = upper.CL),
-                width = 0.5, 
-                position = position_dodge(width = 0.75)) +
-  facet_wrap(~sex, nrow = 1)
+  geom_col(
+    aes(fill = genotype), 
+    alpha = 0.75,
+    width = 0.75,
+    position = position_dodge(width = 0.75)
+    ) +
+  geom_errorbar(
+    aes(ymin =  lower.CL, ymax = upper.CL),
+    width = 0.5, 
+    position = position_dodge(width = 0.75)
+    ) +
+  labs(
+    title = "Effect of genotype * treatment * sex",
+    subtitle = paste0("p = ",an["genotype:treatment:sex",3] %>% signif(2)), 
+    y = "total disatcne travelled (cm)"
+  ) +
+  facet_wrap(~sex, nrow = 1) +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    plot.subtitle = element_text(hjust = 0.5)
+    )
 
 # geno treat
-print(emmeans(fit.dists, ~ genotype * treatment), type = "response") %>% 
+emmeans(fit.dists, ~ genotype * treatment, type = "response") %>% 
   as_tibble() %>% 
-  ggplot(aes(x = treatment, y = emmean/100, colour = genotype)) +
-  geom_col(aes(fill = genotype), 
-           alpha = 0.75,
-           position = position_dodge()) +
-  geom_errorbar(aes(ymin =  lower.CL/100, ymax = upper.CL/100),
-                position = position_dodge()) +
-  facet_wrap(~treatment, nrow = 1, scales = "free_x") +
-  labs(title = "1 month after 7days on salbutamol", 
-       y = "Average distance travelled\nper 10 min bin (cm)") 
+  ggplot(aes(x = genotype, y = emmean/100, colour = genotype)) +
+  geom_col(
+    aes(fill = genotype), 
+    alpha = 0.75,
+    position = position_dodge(width = 1)
+    ) +
+  geom_errorbar(
+    aes(ymin =  lower.CL/100, ymax = upper.CL/100),
+    position = position_dodge(width = 1) , # widthof the dodge
+    width = 0.75 # width of the error bar
+    ) +
+  labs(
+    title = "Effect of genotype * treatment",
+    subtitle = paste0("p = ",an["genotype:treatment",3] %>% signif(2)), 
+    y = "total disatcne travelled (cm)"
+  ) +
+  facet_wrap(~treatment, nrow = 1) +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    plot.subtitle = element_text(hjust = 0.5)
+    )
+
+
 
 # geno treat bin
-print(emmeans(fit.dists, ~ genotype * treatment * bins6 * sex), 
+emmeans(fit.dists, ~ genotype * treatment * bins6 * sex, 
       type = "response") %>% 
   as_tibble() %>% 
   mutate(group = paste0(genotype, "_", 
@@ -460,6 +489,8 @@ Finally, I will now test for alternation changes using a generalised linear mixe
 No significant effects are observed on working memory. Only the `L_R_bias` term is significant, this is to be expected, as they would probably be performing more repitiions. 
 The `bin:Genotype` effect is close (ish) to statistical significance. Meaning that this might have something there. but this does not take into account the Treatment group.   
 Note that I have ignored the effect of Sex here. We have never really seen a Sex effect in all of our ymaze analyses.
+
+
 ```{r}
 glm <-
   final_data %>%
@@ -469,12 +500,18 @@ glm <-
     bin = as.factor(bin)
   ) %>%
   glmmTMB(
-    cbind(alts, non_alts) ~ (bin + genotype + treatment + sex)^3 + L_R_bias + (1|behavBatch) + (1|fish_id),
+    cbind(alts, non_alts) ~ (bin + genotype + treatment + sex)^4 + L_R_bias + (1|behavBatch) + (1|fish_id),
     family = betabinomial(),
     data = .
   )
 
-Anova(glm) %>%
+# not the best model, but this is the ideal one. 
+
+check_model(glm)
+
+an.alts <- Anova(glm) 
+
+an.alts %>% 
   as.data.frame() %>%
   dplyr::rename(pval = `Pr(>Chisq)`) %>%
   kable() %>%
@@ -487,7 +524,7 @@ Anova(glm) %>%
 The effect of genotype x treatment is not too far off statistical significance (p = 0.17) and is trending towards a rescue. 
 
 ```{r}
-print(emmeans(glm, ~ genotype * treatment * sex), type = "response") %>% 
+emmeans(glm, ~ genotype * treatment * sex, type = "response") %>% 
   as_tibble() %>% 
   ggplot(aes(x = treatment, y = prob, colour = genotype)) +
   geom_col(aes(fill = genotype), 
@@ -507,13 +544,17 @@ print(emmeans(glm, ~ genotype * treatment * sex), type = "response") %>%
   scale_fill_viridis_d(end = 0.8, option = "inferno") +
   labs(y = "Estimated probability of alternation\n(LRLR + RLRL)",
        x = "genotype", 
-       title = "GLM predicted probability of zebrafish performing an alternation\ntetragram due to Genotype and Treatment"
+       title = "GLM predicted probability of zebrafish performing an alternation\ntetragram due to Genotype and Treatment",
+       subtitle = paste0("p = ", an.alts["genotype:treatment:sex", 3] %>% signif(2))
        )
 ```
+
 ### bin x Genotype x Treatment
 While this is not significant, the homs treated with iron appear to be performing more alternations more like their het saline siblings
+
+
 ```{r}
-print(emmeans(glm, ~ genotype * treatment * bin * sex), type = "response") %>% 
+emmeans(glm, ~ genotype * treatment * bin * sex, type = "response") %>% 
   as_tibble() %>% 
   mutate(binforvis = case_when(
     bin == 1 ~ "0-10 mins", 
@@ -524,15 +565,21 @@ print(emmeans(glm, ~ genotype * treatment * bin * sex), type = "response") %>%
     bin == 6 ~ "50-60 mins"
     )) %>% 
   ggplot(aes(x = binforvis, y = prob, colour = genotype)) +
-  geom_col(aes(fill = genotype), 
-           alpha = 0.5,
-           # width = 0.75,
-           position = position_dodge()
+  geom_point(
+    alpha = 0.5,
+    # width = 0.75,
+    position = position_dodge(width = 1)
            ) +
-  geom_errorbar(aes(ymin = asymp.LCL, ymax = asymp.UCL ),
-                # width = 0.125,
-                size = 1,
-                position = position_dodge()) +
+  geom_errorbar(
+    aes(ymin = asymp.LCL, ymax = asymp.UCL ),
+    width = 0.5,
+    position = position_dodge(width = 1)
+    ) +
+  geom_line(
+    aes(group = genotype),
+     width = 0.5,
+    position = position_dodge(width = 1)
+  ) +
   facet_wrap(~sex + treatment, nrow = 1) +
   theme(axis.text.x = element_text(hjust = 1,
                                vjust = 1,
@@ -543,8 +590,8 @@ print(emmeans(glm, ~ genotype * treatment * bin * sex), type = "response") %>%
   labs(y = "Estimated probability of alternation\n(LRLR + RLRL)",
        x = "Time interval", 
        title = "GLM predicted probability of zebrafish performing an alternation\ntetragram due to Genotype and Treatment", 
-       # subtitle = "p = 0.25"
-       )
+       subtitle = paste0("p = ", an.alts["bin:genotype:treatment:sex", 3] %>% signif(2))
+  )
 ```
 
 # test for changes to repitition
@@ -561,7 +608,7 @@ final_data_long %>%
     bin == 5 ~ "40-50 mins", 
     bin == 6 ~ "50-60 mins"
     )) %>% 
-  ggplot(aes(x = treatment, y = rel_alts)) +
+  ggplot(aes(x = treatment, y = rel_reps)) +
   geom_boxplot(outlier.shape = NA,
                aes(fill = genotype), 
                alpha = 0.5) +
@@ -570,14 +617,12 @@ final_data_long %>%
   facet_wrap(~binforvis, nrow = 1) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1), 
         legend.position = "bottom") +
-  ylab("Relative number of alternation tetragrams\n(LRLR + RLRL) / total_turns") +
+  ylab("Relative number of alternation tetragrams\n(LLLL + RRRR) / total_turns") +
   scale_colour_viridis_d(end = 0.75) +
   scale_fill_viridis_d(end = 0.75) 
 ```
-Finally, I will now test for alternation changes using a generalised linear mixed effect model (beta-binomial distribution). We use this because it is count data which is over-dispersed, and fixed and random effects are included. The link function is logit.
-No significant effects are observed on working memory. Only the `L_R_bias` term is significant, this is to be expected, as they would probably be performing more repitiions. 
-The `bin:Genotype` effect is close (ish) to statistical significance. Meaning that this might have something there. but this does not take into account the Treatment group.   
-Note that I have ignored the effect of Sex here. We have never really seen a Sex effect in all of our ymaze analyses.
+
+
 ```{r}
 glm.reps <-
   final_data %>%
@@ -587,11 +632,17 @@ glm.reps <-
     bin = as.factor(bin)
   ) %>%
   glmmTMB(
-    cbind(reps, non_reps) ~ (bin + genotype + treatment + sex)^3 + L_R_bias + (1|behavBatch) + (1|fish_id),
+    cbind(reps, non_reps) ~ (bin* genotype*treatment*sex)^4 + L_R_bias + (1|behavBatch) + (1|fish_id),
     family = betabinomial(),
     data = .
   )
-Anova(glm.reps) %>%
+
+# check model 
+# check_model(glm.reps)
+
+an.reps <- Anova(glm.reps)
+  
+an.reps %>% 
   as.data.frame() %>%
   dplyr::rename(pval = `Pr(>Chisq)`) %>%
   kable() %>%
@@ -604,7 +655,7 @@ Anova(glm.reps) %>%
 The effect of genotype x treatment is not too far off statistical significance (p = 0.17) and is trending towards a rescue. 
 
 ```{r}
-print(emmeans(glm.reps, ~ genotype * treatment * sex), type = "response") %>% 
+emmeans(glm.reps, ~ genotype * treatment * sex, type = "response") %>% 
   as_tibble() %>% 
   ggplot(aes(x = treatment, y = prob, colour = genotype)) +
   geom_col(aes(fill = genotype), 
@@ -624,7 +675,8 @@ print(emmeans(glm.reps, ~ genotype * treatment * sex), type = "response") %>%
   scale_fill_viridis_d(end = 0.8, option = "inferno") +
   labs(y = "Estimated probability of alternation\n(LRLR + RLRL)",
        x = "genotype", 
-       title = "GLM predicted probability of zebrafish performing an alternation\ntetragram due to Genotype and Treatment"
+       title = "GLM predicted probability of zebrafish performing an alternation\ntetragram due to Genotype and Treatment",
+       subtitle = paste0("p = ", an.reps["genotype:treatment:sex", 3] %>% signif(2))
        )
 
 #em. <- emmeans(glm, list(pairwise ~ genotype * treatment), response) 
@@ -632,10 +684,12 @@ print(emmeans(glm.reps, ~ genotype * treatment * sex), type = "response") %>%
 #em$`pairwise differences of genotype, treatment`
 
 ```
+
+
 ### bin x Genotype x Treatment
-While this is not significant, the homs treated with iron appear to be performing more alternations more like their het saline siblings
+
 ```{r}
-print(emmeans(glm.reps, ~ genotype * treatment * bin * sex), type = "response") %>% 
+emmeans(glm.reps, ~ genotype * treatment * bin * sex, type = "response") %>% 
   as_tibble() %>% 
   mutate(binforvis = case_when(
     bin == 1 ~ "0-10 mins", 
@@ -646,14 +700,21 @@ print(emmeans(glm.reps, ~ genotype * treatment * bin * sex), type = "response") 
     bin == 6 ~ "50-60 mins"
     )) %>% 
   ggplot(aes(x = binforvis, y = prob, colour = genotype)) +
-  geom_col(aes(fill = genotype), 
-           alpha = 0.5,
-           # width = 0.75,
-           position = position_dodge()) +
-  geom_errorbar(aes(ymin = asymp.LCL, ymax = asymp.UCL ),
-                # width = 0.125,
-                size = 1,
-                position = position_dodge()) +
+ geom_point(
+    alpha = 0.5,
+    # width = 0.75,
+    position = position_dodge(width = 1)
+           ) +
+  geom_errorbar(
+    aes(ymin = asymp.LCL, ymax = asymp.UCL ),
+    width = 0.5,
+    position = position_dodge(width = 1)
+    ) +
+  geom_line(
+    aes(group = genotype),
+     width = 0.5,
+    position = position_dodge(width = 1)
+  ) +
   facet_wrap(~sex+treatment, nrow = 1) +
   theme(axis.text.x = element_text(hjust = 1,
                                vjust = 1,
@@ -664,7 +725,7 @@ print(emmeans(glm.reps, ~ genotype * treatment * bin * sex), type = "response") 
   labs(y = "Estimated probability of alternation\n(LRLR + RLRL)",
        x = "Time interval", 
        title = "GLM predicted probability of zebrafish performing an alternation\ntetragram due to Genotype and Treatment", 
-       subtitle = "p = 0.25"
+       subtitle = paste0("p = ", an.reps["bin:genotype:treatment:sex", 3] %>% signif(2))
        )
 ```
 

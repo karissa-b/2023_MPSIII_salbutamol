@@ -78,7 +78,7 @@ b <- print(emmeans(fit.dists.2, ~ genotype * treatment * sex), type = "response"
 
 
 ggarrange(a, b,
-          common.legend = T) +
+          common.legend = T)
   ggsave("output/plots/genoTreatSex-exp-11-12.png",
          bg = "white",
          width = 18, height = 10,
@@ -123,7 +123,7 @@ print(emmeans(fit.dists, ~ genotype * treatment * bins6 * sex),
              scales = "free_x") +
   labs(x = "Time interval in a Y-maze (10 mins)",
        y = "Distance travelled (cm)") +
-    theme(legend.position = "bottom") +
+    theme(legend.position = "bottom")
     ggsave("output/plots/genoTreatSexBin-exp-11-12.png",
            bg = "white",
            width = 18, height = 10,
@@ -153,3 +153,41 @@ Anova(glm) %>%
   kable() %>%
   kable_styling(full_width = FALSE) %>%
   row_spec(row = 4, bold = TRUE)
+# only hets
+#
+print(emmeans(fit.dists, ~ genotype * treatment * bins6 * sex),
+      type = "response") %>%
+  as_tibble() %>%
+  mutate(group = paste0(genotype, "_",
+                        treatment, "_",
+                        sex),
+         genotreat = paste0(genotype, "_", treatment)) %>%
+  dplyr::filter(genotreat == "het_untreated") %>%
+
+  mutate(exp = "7 days on salbutamol") %>%
+  bind_rows(  print(emmeans(fit.dists.2, ~ genotype * treatment * bins6 * sex),
+                    type = "response") %>%
+                as_tibble() %>%
+                mutate(group = paste0(genotype, "_",
+                                      treatment, "_",
+                                      sex),
+                       genotreat = paste0(genotype, "_", treatment)) %>%
+                dplyr::filter(genotreat != "het_20 µM Salbutamol") %>%
+                mutate(exp = "7 days on salbutamol + 1 month no treatment")     )  %>%
+  ggplot(aes(x = bins6, y = emmean, colour = genotreat)) +
+  geom_point(aes(fill = group),
+             show.legend = F,
+             alpha = 0.75,
+             position = position_dodge(width = 0.75)) +
+  geom_errorbar(aes(ymin =  lower.CL,
+                    ymax = upper.CL),
+                position = position_dodge(0.75)) +
+  geom_line(aes(group = group),
+            position = position_dodge(0.75),
+            show.legend = F) +
+  facet_wrap(~sex,
+             nrow = 1,
+             scales = "free_x") +
+  labs(x = "Time interval in a Y-maze (10 mins)",
+       y = "Distance travelled (cm)") +
+  theme(legend.position = "bottom")
