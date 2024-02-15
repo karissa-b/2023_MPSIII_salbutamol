@@ -191,10 +191,11 @@ distancess %>%
 
 ```{r}
 fish2omit2 <- c(fish2omit, 
-  meta %>% 
-    dplyr::filter(grepl(Comment, pattern = "tracking")) %>% 
-    .$fish_id, 
-  71
+                meta %>% 
+                  dplyr::filter(grepl(Comment, 
+                                      pattern = "tracking")) %>% 
+                  .$fish_id, 
+                71
 )
 ```
 
@@ -276,6 +277,12 @@ fit.dists <-
 # check assumptions
 # all look ok
 check_model(fit.dists)
+
+# colinearity
+
+check_collinearity(fit.dists) %>% 
+  plot +
+  easy_rotate_x_labels(angle = -45)
 
 an <- Anova(fit.dists)
 

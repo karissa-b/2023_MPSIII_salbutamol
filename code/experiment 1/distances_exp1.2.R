@@ -1,9 +1,9 @@
 # # IMPORT DATA -------------------------------------------------------------
 
-meta <- readRDS("data/exp1.2/metadata_withGenotype.rds")
+meta <- readRDS("data/exp1.3/metadata_withGenotype.rds")
 
 # define the filenames
-file_list <- list.files("data/exp1.2/raw_data/distances",
+file_list <- list.files("data/exp1.3/raw_data/distances",
                         pattern = "*.csv",
                         full.names = TRUE)
 
@@ -14,7 +14,7 @@ df <- tibble(data_file_distances = file_list) %>%  #Import data as a tibble with
 
          # cleanup the filename to match what is in the meta sheet
          data_file_distances = str_remove(data_file_distances,
-                                          pattern = "data/exp1.2/raw_data/distances/"))
+                                          pattern = "data/exp1.3/raw_data/distances/"))
 
 df
 
@@ -40,7 +40,7 @@ left_join(meta,
                values_from = value)
 
 df %>%
-saveRDS("data/exp1.2/processed_data/distanceDataexp1-2.rds")
+saveRDS("data/exp1.3/processed_data/distanceDataexp1-3.rds")
 
 df %>%
   group_by(fish_id) %>%
@@ -48,9 +48,13 @@ df %>%
   dplyr::distinct(fish_id, .keep_all = TRUE) %>%
   dplyr::filter(genotype %in% c('het', 'hom'),
                 sex %in% c("m", "f")) %>%
-  ggplot(aes(x = genotype, y = total_dist)) +
-  geom_boxplot() +
-  geom_jitter() +
+  ggplot(
+    aes(x = genotype, y = total_dist)
+    ) +
+  geom_boxplot(outlier.shape = NA) +
+  geom_jitter(
+    aes(colour = ymazePosition)
+  ) +
   facet_wrap(~treatment+sex, nrow = 1)
 
 bin_df <- tibble(bins10 = c(rep(1, 360),
